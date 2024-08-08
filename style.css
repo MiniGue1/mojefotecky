@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on the body */
+    background-color: #000; /* Dark space background */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+}
+
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Double the width of the viewport */
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap; /* Ensure stars line up horizontally */
+    animation: scrollStars 20s linear infinite; /* Adjust duration for scroll speed */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 2px; /* Size of the star */
+    height: 2px; /* Size of the star */
+}
+
+/* Define the scrolling effect */
+@keyframes scrollStars {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.text-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white; /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Light glow effect */
+    margin-bottom: 20px; /* Space below the text box */
+}
+
+.text-box h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.text-box p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+.image-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center images horizontally */
+    max-width: 100%; /* Ensure container does not exceed viewport width */
+    background-color: rgba(0, 0, 0, 0.7); /* Same background as text-box for consistency */
+    padding: 10px; /* Padding around images */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Light glow effect */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Light border */
+    width: 90%; /* Constrain width to fit within the viewport */
+    max-width: 1200px; /* Maximum width to prevent excessive stretching */
+    max-height: 80vh; /* Constrain height to fit within the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.gallery-item {
+    flex: 1 1 calc(25% - 10px); /* 4 images per row with reduced spacing */
+    position: relative;
+    aspect-ratio: 1; /* Ensures a 1:1 aspect ratio */
+    overflow: hidden;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    border: 2px solid #fff; /* White border around images */
+    border-radius: 5px; /* Optional: adds rounded corners to the border */
+}
+/* Custom scrollbar for WebKit browsers */
+.image-box::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+.image-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3); /* Track background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.image-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.7); /* Scrollbar color */
+    border-radius: 100px; /* Rounded corners */
+}
+
+.image-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.9); /* Color on hover */
+}
